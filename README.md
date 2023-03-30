@@ -1,5 +1,9 @@
 # Проект
 
+>Схема базы данных
+
+![image](https://user-images.githubusercontent.com/129426027/228926880-34b6669a-0124-47d5-a6bd-67767f03c1db.png)
+
 > Авторизация 
 
 ![image](https://user-images.githubusercontent.com/129426027/228920068-22b41275-fb4f-4b2d-bba7-2b0f45699d17.png)
