@@ -17,7 +17,7 @@
             <Border Height="350" Width="245" Background="White">
                 <StackPanel Margin="0,0,4,0">
                     <TextBlock Text="Регистрация" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 30 0 0" FontFamily="Montserrat Light"/>
-
+                    
                     <TextBox
                         x:Name="tbxLogin"
                         materialDesign:HintAssist.Hint="Логин"
@@ -56,6 +56,20 @@
                         BorderBrush="#FF3C94D8" 
                         FontFamily="Montserrat Light"
                         Click="Button_RegClick"/>
+
+                      <Button
+                         x:Name="btnBack" 
+                         Margin="0 10 0 0"
+                         Width="170"
+                         Height="22"
+                         FontSize="9"
+                         Content="Вернутся назад"
+                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                         Style="{StaticResource MaterialDesignPaperDarkButton}"
+                         ToolTip="Resource name: MaterialDesignPaperDarkButton"
+                         BorderBrush="#FF3C94D8" 
+                         FontFamily="Montserrat Light"
+                         Click="btnBack_Click"/>
                 </StackPanel>
             </Border>
         </StackPanel>

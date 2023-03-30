@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BakeryGudosh.Windows"
         mc:Ignorable="d"
-        Title="Меню" 
+        Title="Изменение товара" 
         Height="450" 
         Width="800"
         ResizeMode="NoResize"

@@ -31,6 +31,7 @@ namespace BakeryGudosh.Windows
         {
             InitializeComponent();
 
+            tbxUser.Text = UserDataClass.user.Login;
             LvCardProd.ItemsSource = observableCollectionProduct;
         }
 

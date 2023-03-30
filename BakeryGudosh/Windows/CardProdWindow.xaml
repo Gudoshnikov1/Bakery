@@ -20,7 +20,7 @@
         <Image Source="/Res/images/8d03e8324d6ac433e5885f8c49095b3d_w1200_h630--c.jpeg" Opacity="0.4" Height="450" Width="800" Grid.RowSpan="3" OpacityMask="Black" Margin="0,17,0,17"/>
         <Border Background="White" Margin="7,7,7,7" Style="{DynamicResource MaterialDesignToolBarMainPanelBorderStyle}">
             <Grid>
-                <TextBlock Text="Меню" HorizontalAlignment="Center" FontSize="17" VerticalAlignment="Center" FontFamily="Montserrat Light"/>
+                <TextBlock Text="Корзина" HorizontalAlignment="Center" FontSize="17" VerticalAlignment="Center" FontFamily="Montserrat Light"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <materialDesign:PackIcon Kind="AccountMultiple" Margin="0 0 10 0" VerticalAlignment="Center"/>
                     <TextBlock x:Name="tbxUser" Margin="0 0 10 0" Text="Пользователь" VerticalAlignment="Center" FontFamily="Montserrat Light"/>
