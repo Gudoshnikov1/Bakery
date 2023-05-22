@@ -41,11 +41,14 @@ namespace BakeryGudosh.Windows
         {
             InitializeComponent();
 
+            //Определяет логин пользователя в менюшке с профилем
             tbxUser.Text = UserDataClass.user.Login;
 
+            //стартовый индекс в комбобоксе
             CmdSort.ItemsSource = strings;
             CmdSort.SelectedIndex = 0;
 
+            //при страрте окна, вызываем метод содержащий информацию о товарах
             GetListProduct();
         }
 
@@ -60,13 +63,13 @@ namespace BakeryGudosh.Windows
             var StartIndex = CmdSort.SelectedIndex;
 
             //Поиск
-
             products = products.Where(i => i.Title.ToLower().Contains(tbxPoisk.Text.ToLower())).ToList();
 
             //Сортировка
 
             switch (StartIndex)
             {
+                //в зависимости от выбранного списка, будет выполняться действие
                 case 0:
                     products = products.OrderBy(i => i.ID).ToList();
                     break;
@@ -97,9 +100,9 @@ namespace BakeryGudosh.Windows
             {
                 return;
             }
-
+            //передаем данные с продукта на кнопку и дальше
             var product = button.DataContext as Product;
-
+            //обьявляем окно и открываем его
             EditWindow editProductWindow = new EditWindow(product);
             editProductWindow.ShowDialog();
 
@@ -118,6 +121,7 @@ namespace BakeryGudosh.Windows
 
         private void btnAddCard_Click(object sender, RoutedEventArgs e)
         {
+            //говорим что конкретно нажатая кнопка будет отвечать за что то
             var button = sender as Button;
             if (button == null)
             {
@@ -125,7 +129,9 @@ namespace BakeryGudosh.Windows
             }
 
             var product = button.DataContext as Product;
-            CardAddClass.products.Add(product);
+            //добавляем выбранную плитку в коллекцию
+            CardAddClass.observableCollectionProduct.Add(product);
+            //выводим сообщение о добавлении товара
             MessageBox.Show($"Товар {product.Title} успешно добавлен в корзину");
         }
 

@@ -26,13 +26,8 @@ using System.Xml.Linq;
 
 namespace BakeryGudosh.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для EditWindow.xaml
-    /// </summary>
     public partial class EditWindow : Window
     {
-
-
         private string pathPhoto = null;
 
         private bool isEdit = false;
@@ -43,9 +38,10 @@ namespace BakeryGudosh.Windows
         {
             InitializeComponent();
 
-
+            //Выставляет нулевой индекс в комбобоксе
             CMBTypeProduct.ItemsSource = db.ProductType.ToList();
             CMBTypeProduct.SelectedIndex = 0;
+            //показываем ему из какого столбца бд брать имя выбранного поля комбобокса
             CMBTypeProduct.DisplayMemberPath = "Name";
         }
 
@@ -57,10 +53,12 @@ namespace BakeryGudosh.Windows
             CMBTypeProduct.SelectedIndex = 0;
             CMBTypeProduct.DisplayMemberPath = "Name";
 
+            //при нажатии кнопки редактирования автоматически заполняются поля открытой нами плитки товара
             tbxTitle.Text = product.Title.ToString();
             tbxDesc.Text = product.Description.ToString();
             CMBTypeProduct.SelectedItem = db.ProductType.Where(i => i.ID == product.TypeID).FirstOrDefault();
 
+            //проверка на то чтобы поставить фотку
             if (product.Image != null)
             {
                 using (MemoryStream stream = new MemoryStream(product.Image))
@@ -74,19 +72,15 @@ namespace BakeryGudosh.Windows
                     ImgProduct.Source = bitmapImage;
 
                 }
-
-
             }
 
-
             isEdit = true;
-
             editProduct = product;
-
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            //при нажатии на кнопку редактирования он будет проверять есть этот товар или нет
             if (isEdit)
             {
                 //изменение товара
@@ -102,7 +96,7 @@ namespace BakeryGudosh.Windows
             }
             else
             {
-                //добавление товара
+                //добавление товара 
                 Product product = new Product();
                 product.Title = tbxTitle.Text;
                 product.Description = tbxDesc.Text;
@@ -111,7 +105,7 @@ namespace BakeryGudosh.Windows
                 {
                     product.Image = File.ReadAllBytes(pathPhoto);
                 }
-
+                //при заполнении всех полей сохраняются изменения и добавляются в базу
                 db.Product.Add(product);
 
                 db.SaveChanges();
@@ -123,10 +117,12 @@ namespace BakeryGudosh.Windows
 
         private void btnChoseImage_Click(object sender, RoutedEventArgs e)
         {
+            //кнопка выбора изображения
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
                 ImgProduct.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                //определаяем фото в бд
                 pathPhoto = openFileDialog.FileName;
             }
         }

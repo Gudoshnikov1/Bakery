@@ -41,6 +41,7 @@ namespace BakeryGudosh
 
         private void Button_SignClick(object sender, RoutedEventArgs e)
         {
+            //создаем переменную которая будет стравнивать введенную нами информацию с информацией в бд
             var userAuth = db.User.FirstOrDefault(i => i.Login == tbxLogin.Text && i.Password == pbPass.Password);
 
             if (userAuth != null)

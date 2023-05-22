@@ -27,6 +27,7 @@ namespace BakeryGudosh.Windows
         {
             InitializeComponent();
 
+            //Определяет логин пользователя в менюшке с профилем
             tbxUser.Text = UserDataClass.user.Login;
         }
 
